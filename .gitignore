@@ -1,10 +1,21 @@
 Pods/
-R.generated.swift
 xcuserdata/
 .DS_Store
 *.ipa
+Podfile.lock
+*.xcuserstate
 *.dSYM.zip
 node_modules/
 *.xcarchive
 FrameworkPod/
 Build/
+
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+
+
+

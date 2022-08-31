@@ -162,14 +162,14 @@
 		837519B228BE64A90026B38B /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				837519B328BE64A90026B38B /* MineListCell.m */,
-				837519B428BE64A90026B38B /* ActionSheetView.m */,
-				837519B528BE64A90026B38B /* MineVC.m */,
-				837519B628BE64A90026B38B /* MineModel.m */,
 				837519B728BE64A90026B38B /* ActionSheetView.h */,
+				837519B428BE64A90026B38B /* ActionSheetView.m */,
 				837519B828BE64A90026B38B /* MineListCell.h */,
+				837519B328BE64A90026B38B /* MineListCell.m */,
 				837519B928BE64A90026B38B /* MineModel.h */,
+				837519B628BE64A90026B38B /* MineModel.m */,
 				837519BA28BE64A90026B38B /* MineVC.h */,
+				837519B528BE64A90026B38B /* MineVC.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -177,14 +177,14 @@
 		837519BF28BE64C30026B38B /* Function */ = {
 			isa = PBXGroup;
 			children = (
-				837519C028BE64C30026B38B /* TextViewCell.m */,
-				837519C128BE64C30026B38B /* UltraGroup */,
+				837519D728BE64C30026B38B /* ChatRoom */,
+				837519D528BE64C30026B38B /* FunctionRootVC.h */,
 				837519C428BE64C30026B38B /* FunctionRootVC.m */,
 				837519C528BE64C30026B38B /* Group */,
 				837519CD28BE64C30026B38B /* Message */,
-				837519D528BE64C30026B38B /* FunctionRootVC.h */,
 				837519D628BE64C30026B38B /* TextViewCell.h */,
-				837519D728BE64C30026B38B /* ChatRoom */,
+				837519C028BE64C30026B38B /* TextViewCell.m */,
+				837519C128BE64C30026B38B /* UltraGroup */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -192,8 +192,8 @@
 		837519C128BE64C30026B38B /* UltraGroup */ = {
 			isa = PBXGroup;
 			children = (
-				837519C228BE64C30026B38B /* UltraGroupFunctionListVC.m */,
 				837519C328BE64C30026B38B /* UltraGroupFunctionListVC.h */,
+				837519C228BE64C30026B38B /* UltraGroupFunctionListVC.m */,
 			);
 			path = UltraGroup;
 			sourceTree = "<group>";
@@ -201,13 +201,13 @@
 		837519C528BE64C30026B38B /* Group */ = {
 			isa = PBXGroup;
 			children = (
-				837519C628BE64C30026B38B /* SelectGroupMemberCell.m */,
-				837519C728BE64C30026B38B /* GroupFunctionListVC.h */,
-				837519C828BE64C30026B38B /* SelectGroupMemberVC.m */,
-				837519C928BE64C30026B38B /* SelectGroupMemberCell.h */,
 				837519CA28BE64C30026B38B /* Group.storyboard */,
+				837519C728BE64C30026B38B /* GroupFunctionListVC.h */,
 				837519CB28BE64C30026B38B /* GroupFunctionListVC.m */,
+				837519C928BE64C30026B38B /* SelectGroupMemberCell.h */,
+				837519C628BE64C30026B38B /* SelectGroupMemberCell.m */,
 				837519CC28BE64C30026B38B /* SelectGroupMemberVC.h */,
+				837519C828BE64C30026B38B /* SelectGroupMemberVC.m */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -215,13 +215,13 @@
 		837519CD28BE64C30026B38B /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				837519CE28BE64C30026B38B /* MessageFunctionListVC.h */,
-				837519CF28BE64C30026B38B /* RecordHQVoiceMessageVC.m */,
-				837519D028BE64C30026B38B /* RecordVoiceMessageVC.m */,
-				837519D128BE64C30026B38B /* RecordVoiceMessageVC.h */,
-				837519D228BE64C30026B38B /* RecordHQVoiceMessageVC.h */,
-				837519D328BE64C30026B38B /* MessageFunctionListVC.m */,
 				837519D428BE64C30026B38B /* Message.storyboard */,
+				837519CE28BE64C30026B38B /* MessageFunctionListVC.h */,
+				837519D328BE64C30026B38B /* MessageFunctionListVC.m */,
+				837519D228BE64C30026B38B /* RecordHQVoiceMessageVC.h */,
+				837519CF28BE64C30026B38B /* RecordHQVoiceMessageVC.m */,
+				837519D128BE64C30026B38B /* RecordVoiceMessageVC.h */,
+				837519D028BE64C30026B38B /* RecordVoiceMessageVC.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -238,13 +238,13 @@
 		837519E628BE64DB0026B38B /* ChatView */ = {
 			isa = PBXGroup;
 			children = (
-				837519E728BE64DB0026B38B /* rc.png */,
+				837519FD28BE64DB0026B38B /* ChatListVC.h */,
 				837519E828BE64DB0026B38B /* ChatListVC.m */,
 				837519E928BE64DB0026B38B /* ChatVC.h */,
-				837519EA28BE64DB0026B38B /* PopupMenu */,
-				837519F328BE64DB0026B38B /* CustomMessage */,
 				837519FC28BE64DB0026B38B /* ChatVC.m */,
-				837519FD28BE64DB0026B38B /* ChatListVC.h */,
+				837519F328BE64DB0026B38B /* CustomMessage */,
+				837519EA28BE64DB0026B38B /* PopupMenu */,
+				837519E728BE64DB0026B38B /* rc.png */,
 			);
 			path = ChatView;
 			sourceTree = "<group>";
@@ -252,14 +252,14 @@
 		837519EA28BE64DB0026B38B /* PopupMenu */ = {
 			isa = PBXGroup;
 			children = (
-				837519EB28BE64DB0026B38B /* PopoverView.h */,
-				837519EC28BE64DB0026B38B /* PopoverViewCell.h */,
 				837519ED28BE64DB0026B38B /* PopoverAction.h */,
-				837519EE28BE64DB0026B38B /* PopupMenuViewController.m */,
 				837519EF28BE64DB0026B38B /* PopoverAction.m */,
+				837519EB28BE64DB0026B38B /* PopoverView.h */,
 				837519F028BE64DB0026B38B /* PopoverView.m */,
+				837519EC28BE64DB0026B38B /* PopoverViewCell.h */,
 				837519F128BE64DB0026B38B /* PopoverViewCell.m */,
 				837519F228BE64DB0026B38B /* PopupMenuViewController.h */,
+				837519EE28BE64DB0026B38B /* PopupMenuViewController.m */,
 			);
 			path = PopupMenu;
 			sourceTree = "<group>";
@@ -267,14 +267,14 @@
 		837519F328BE64DB0026B38B /* CustomMessage */ = {
 			isa = PBXGroup;
 			children = (
+				837519F828BE64DB0026B38B /* CustomMediaMessage.h */,
 				837519F428BE64DB0026B38B /* CustomMediaMessage.m */,
 				837519F528BE64DB0026B38B /* CustomMediaMessageCell.h */,
-				837519F628BE64DB0026B38B /* CustomMessageCell.h */,
-				837519F728BE64DB0026B38B /* CustomMessage.m */,
-				837519F828BE64DB0026B38B /* CustomMediaMessage.h */,
-				837519F928BE64DB0026B38B /* CustomMessage.h */,
-				837519FA28BE64DB0026B38B /* CustomMessageCell.m */,
 				837519FB28BE64DB0026B38B /* CustomMediaMessageCell.m */,
+				837519F928BE64DB0026B38B /* CustomMessage.h */,
+				837519F728BE64DB0026B38B /* CustomMessage.m */,
+				837519F628BE64DB0026B38B /* CustomMessageCell.h */,
+				837519FA28BE64DB0026B38B /* CustomMessageCell.m */,
 			);
 			path = CustomMessage;
 			sourceTree = "<group>";
@@ -282,16 +282,16 @@
 		83751A0928BE64FF0026B38B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				83751A0A28BE64FF0026B38B /* ConfigNaviAndFileController.m */,
-				83751A0B28BE64FF0026B38B /* LoginVC.m */,
 				83751A0C28BE64FF0026B38B /* ConfigInfoConversationVC.h */,
-				83751A0D28BE64FF0026B38B /* IMDataSource.m */,
-				83751A0E28BE64FF0026B38B /* ConfigInfoVC.m */,
 				83751A0F28BE64FF0026B38B /* ConfigInfoConversationVC.m */,
-				83751A1028BE64FF0026B38B /* LoginVC.h */,
-				83751A1128BE64FF0026B38B /* ConfigNaviAndFileController.h */,
-				83751A1228BE64FF0026B38B /* IMDataSource.h */,
 				83751A1328BE64FF0026B38B /* ConfigInfoVC.h */,
+				83751A0E28BE64FF0026B38B /* ConfigInfoVC.m */,
+				83751A1128BE64FF0026B38B /* ConfigNaviAndFileController.h */,
+				83751A0A28BE64FF0026B38B /* ConfigNaviAndFileController.m */,
+				83751A1228BE64FF0026B38B /* IMDataSource.h */,
+				83751A0D28BE64FF0026B38B /* IMDataSource.m */,
+				83751A1028BE64FF0026B38B /* LoginVC.h */,
+				83751A0B28BE64FF0026B38B /* LoginVC.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";

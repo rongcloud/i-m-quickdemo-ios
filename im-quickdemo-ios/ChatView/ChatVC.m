@@ -85,7 +85,8 @@
         } error:^(RCErrorCode status) {
             
         }];
-        
+    } else {
+        [super didTapMessageCell:model];
     }
 }
 
