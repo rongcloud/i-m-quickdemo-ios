@@ -7,9 +7,9 @@ target 'im-quickdemo-ios' do
 
   # Pods for im-quickdemo-ios
   # RongCloud SDK
-    pod 'RongCloudOpenSource/IMKit', '5.2.3'
-    pod 'RongCloudOpenSource/Sight', '5.2.3'
-    pod 'RongCloudOpenSource/LocationKit', '5.2.3'
+    pod 'RongCloudOpenSource/IMKit', '5.2.4'
+    pod 'RongCloudOpenSource/Sight', '5.2.4'
+    pod 'RongCloudOpenSource/LocationKit', '5.2.4'
 
   # Other
     pod 'IQKeyboardManager'
