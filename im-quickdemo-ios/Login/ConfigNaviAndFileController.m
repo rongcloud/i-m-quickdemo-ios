@@ -66,7 +66,7 @@
         fileServer = self.fileServerTextField.text;
         [[AppGlobalConfig shareInstance] setFileServer:fileServer];
     }
-    [[RCIMClient sharedRCIMClient] setServerInfo:naviServer.length > 0?naviServer:@"" fileServer:fileServer.length > 0?fileServer:@""];
+    [[RCCoreClient sharedCoreClient] setServerInfo:naviServer.length > 0?naviServer:@"" fileServer:fileServer.length > 0?fileServer:@""];
 }
 
 - (void)laodData{

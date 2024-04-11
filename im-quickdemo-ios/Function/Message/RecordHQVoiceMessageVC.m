@@ -104,7 +104,7 @@
         // 构造高清语音消息
         RCHQVoiceMessage *hqVoiceMsg = [RCHQVoiceMessage messageWithPath:path duration:audioLength];
         // 发送消息
-        [[RCIMClient sharedRCIMClient] sendMediaMessage:self.conversationType targetId:self.targetIdTextField.text content:hqVoiceMsg pushContent:nil pushData:nil progress:^(int progress, long messageId) {
+        [[RCCoreClient sharedCoreClient] sendMediaMessage:self.conversationType targetId:self.targetIdTextField.text content:hqVoiceMsg pushContent:nil pushData:nil progress:^(int progress, long messageId) {
             
         } success:^(long messageId) {
             NSLog(@"--- 发送消息成功");
@@ -123,7 +123,7 @@
     long long currentTime = [[NSDate date] timeIntervalSince1970] * 1000;
     NSString *path = [RCUtilities rongImageCacheDirectory];
     path = [path
-        stringByAppendingFormat:@"/%@/RCHQVoiceCache", [RCIMClient sharedRCIMClient].currentUserInfo.userId];
+        stringByAppendingFormat:@"/%@/RCHQVoiceCache", [RCCoreClient sharedCoreClient].currentUserInfo.userId];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path] == NO) {
         [[NSFileManager defaultManager] createDirectoryAtPath:path
                                   withIntermediateDirectories:YES

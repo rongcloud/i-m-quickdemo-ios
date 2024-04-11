@@ -168,7 +168,7 @@
 
 - (void)loadData{
     //获取推送语言
-    RCPushProfile * pushProfile = [[RCIMClient sharedRCIMClient] pushProfile];
+    RCPushProfile * pushProfile = [[RCCoreClient sharedCoreClient] pushProfile];
     RCPushLauguage  pushLauguage = pushProfile.pushLauguage;
     
     __block NSString * lauguage;
@@ -194,7 +194,7 @@
     //获取免打扰
 
     __weak typeof(self) weakSelf = self;
-    [[RCIMClient sharedRCIMClient] getNotificationQuietHours:^(NSString *startTime, int spanMins) {
+    [[RCCoreClient sharedCoreClient] getNotificationQuietHours:^(NSString *startTime, int spanMins) {
         if ([startTime isEqualToString:@"00:00:00"]&&spanMins == 1439) {
             isMuteNotifications = YES;
         }else{
@@ -301,7 +301,7 @@
             lauguageCode = @"zh_CN";
         }
         //设置 推送语言
-        [[RCIMClient sharedRCIMClient].pushProfile setPushLauguageCode:lauguageCode success:^{
+        [[RCCoreClient sharedCoreClient].pushProfile setPushLauguageCode:lauguageCode success:^{
             listModel.isOpen = lauguage;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [SVProgressHUD showSuccessWithStatus:@"设置推送语言成功"];
@@ -320,7 +320,7 @@
     if ([listModel.listId isEqualToString:@"101"]){
         if ([listModel.isOpen isEqualToString:@"1"]) {
             listModel.isOpen = @"0";
-            [[RCIMClient sharedRCIMClient] setNotificationQuietHours:@"00:00:00" spanMins:1439 success:^{
+            [[RCCoreClient sharedCoreClient] setNotificationQuietHours:@"00:00:00" spanMins:1439 success:^{
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [RCAlertView showAlertController:@"标题" message:@"更改成功" cancelTitle:@"确定" inViewController:self];
                 });
@@ -330,7 +330,7 @@
             }];
         }else{
             listModel.isOpen = @"1";
-            [[RCIMClient sharedRCIMClient] removeNotificationQuietHours:^{
+            [[RCCoreClient sharedCoreClient] removeNotificationQuietHours:^{
                 
             } error:^(RCErrorCode status) {}];
         }
@@ -338,7 +338,7 @@
     if ([listModel.listId isEqualToString:@"102"]){
         
         if([listModel.isOpen isEqualToString:@"1"]){
-            [[RCIMClient sharedRCIMClient].pushProfile updateShowPushContentStatus:NO success:^{
+            [[RCCoreClient sharedCoreClient].pushProfile updateShowPushContentStatus:NO success:^{
                 listModel.isOpen = @"0";
                 NSLog(@"是否显示远程推送的内容设置成功");
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -351,7 +351,7 @@
                 NSLog(@"是否显示远程推送的内容设置失败");
             }];
         }else{
-            [[RCIMClient sharedRCIMClient].pushProfile updateShowPushContentStatus:YES success:^{
+            [[RCCoreClient sharedCoreClient].pushProfile updateShowPushContentStatus:YES success:^{
                 NSLog(@"是否显示远程推送的内容设置成功");
                 listModel.isOpen = @"1";
                 dispatch_async(dispatch_get_main_queue(), ^{

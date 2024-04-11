@@ -64,7 +64,7 @@
 }
 
 - (void)setAutoLayout {
-    RCMessage *message = [[RCIMClient sharedRCIMClient] getMessage:self.model.messageId];
+    RCMessage *message = [[RCCoreClient sharedCoreClient] getMessage:self.model.messageId];
     CustomMessage *testMessage = (CustomMessage *)self.model.content;
     NSDictionary *dict = message.expansionDic;
     NSString *value = @"0";
@@ -122,7 +122,7 @@
 + (CGSize)sizeForMessageModel:(RCMessageModel *)model
       withCollectionViewWidth:(CGFloat)collectionViewWidth
          referenceExtraHeight:(CGFloat)extraHeight {
-    RCMessage *msg= [[RCIMClient sharedRCIMClient] getMessage:model.messageId];
+    RCMessage *msg= [[RCCoreClient sharedCoreClient] getMessage:model.messageId];
     CustomMessage *message = (CustomMessage *)model.content;
     NSDictionary *dict = msg.expansionDic;
     NSString *value = @"0";

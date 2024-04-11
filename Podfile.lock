@@ -14,31 +14,31 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (6.5.10)
+  - IQKeyboardManager (6.5.11)
   - Masonry (1.1.0)
-  - RongCloudIM/ChatRoom (5.2.4):
+  - RongCloudIM/ChatRoom (5.8.0):
     - RongCloudIM/IMLibCore
-  - RongCloudIM/CustomerService (5.2.4):
+  - RongCloudIM/CustomerService (5.8.0):
     - RongCloudIM/IMLibCore
-  - RongCloudIM/Discussion (5.2.4):
+  - RongCloudIM/Discussion (5.8.0):
     - RongCloudIM/IMLibCore
-  - RongCloudIM/IMLib (5.2.4):
+  - RongCloudIM/IMLib (5.8.0):
     - RongCloudIM/ChatRoom
     - RongCloudIM/CustomerService
     - RongCloudIM/Discussion
     - RongCloudIM/IMLibCore
-    - RongCloudIM/Location
     - RongCloudIM/PublicService
-  - RongCloudIM/IMLibCore (5.2.4)
-  - RongCloudIM/Location (5.2.4):
+  - RongCloudIM/IMLibCore (5.8.0)
+  - RongCloudIM/Location (5.8.0):
     - RongCloudIM/IMLibCore
-  - RongCloudIM/PublicService (5.2.4):
+  - RongCloudIM/PublicService (5.8.0):
     - RongCloudIM/IMLibCore
-  - RongCloudOpenSource/IMKit (5.2.4):
-    - RongCloudIM/IMLib (= 5.2.4)
-  - RongCloudOpenSource/LocationKit (5.2.4):
+  - RongCloudOpenSource/IMKit (5.8.0):
+    - RongCloudIM/IMLib (= 5.8.0)
+  - RongCloudOpenSource/LocationKit (5.8.0):
+    - RongCloudIM/Location
     - RongCloudOpenSource/IMKit
-  - RongCloudOpenSource/Sight (5.2.4):
+  - RongCloudOpenSource/Sight (5.8.0):
     - RongCloudOpenSource/IMKit
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
@@ -49,9 +49,9 @@ DEPENDENCIES:
   - AFNetworking
   - IQKeyboardManager
   - Masonry (= 1.1.0)
-  - RongCloudOpenSource/IMKit (= 5.2.4)
-  - RongCloudOpenSource/LocationKit (= 5.2.4)
-  - RongCloudOpenSource/Sight (= 5.2.4)
+  - RongCloudOpenSource/IMKit (= 5.8.0)
+  - RongCloudOpenSource/LocationKit (= 5.8.0)
+  - RongCloudOpenSource/Sight (= 5.8.0)
   - SDWebImage (= 5.11.1)
   - SVProgressHUD
 
@@ -66,14 +66,14 @@ SPEC REPOS:
     - SVProgressHUD
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
+  IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  RongCloudIM: 09269332ab90c9a8d966f38b25410c8d2629eee6
-  RongCloudOpenSource: eaafe743b1b7b848b2e306560330d3a4af065a82
+  RongCloudIM: 7a1b3874c38ad8214c34f913a85dccb79e3a7629
+  RongCloudOpenSource: 0d488bf0bb647de98f47550fc324fea2b0d38086
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 6fb41c6a81bd86893bd761273204f736de526eb1
+PODFILE CHECKSUM: 5dfe979f6d34d71d72f53b701d4b56dc5fe762e7
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.15.0

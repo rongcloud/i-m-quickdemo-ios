@@ -7,7 +7,7 @@
 
 #import "ChatRoomFunctionListVC.h"
 #import "TextViewCell.h"
-
+#import <RongChatRoom/RongChatRoom.h>
 @interface ChatRoomFunctionListVC ()<UITableViewDelegate, UITableViewDataSource,RCChatRoomKVStatusChangeDelegate>
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @end
@@ -95,7 +95,7 @@
 // 加入聊天室
 - (void)joinChatRoom:(NSString *)roomId {
     
-    [[RCIMClient sharedRCIMClient] joinChatRoom:roomId messageCount:10 success:^{
+    [[RCChatRoomClient sharedChatRoomClient] joinChatRoom:roomId messageCount:10 success:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD showSuccessWithStatus:@"加入聊天室成功"];
         });
@@ -109,7 +109,7 @@
 // 退出聊天室
 - (void)quitChatRoom:(NSString *)roomId {
     
-    [[RCIMClient sharedRCIMClient] quitChatRoom:roomId success:^{
+    [[RCChatRoomClient sharedChatRoomClient] quitChatRoom:roomId success:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD showSuccessWithStatus:@"退出聊天室成功"];
         });
@@ -122,7 +122,7 @@
 // 获取聊天室历史消息
 - (void)getMessage:(NSString *)roomId {
     
-    [[RCIMClient sharedRCIMClient] getRemoteChatroomHistoryMessages:roomId recordTime:0 count:10 order:RC_Timestamp_Desc success:^(NSArray<RCMessage *> * _Nonnull messages, long long syncTime) {
+    [[RCChatRoomClient sharedChatRoomClient] getRemoteChatroomHistoryMessages:roomId recordTime:0 count:10 order:RC_Timestamp_Desc success:^(NSArray<RCMessage *> * _Nonnull messages, long long syncTime) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD showSuccessWithStatus:@"获取聊天室历史"];
         });
@@ -135,7 +135,7 @@
 // 设置kv
 - (void)setChatRoomEntry:(NSString *)roomId {
     
-    [[RCIMClient sharedRCIMClient] setChatRoomEntry:roomId key:@"gift" value:@"1" sendNotification:YES autoDelete:YES notificationExtra:@"RC:chrmKVAAAA" success:^{
+    [[RCChatRoomClient sharedChatRoomClient] setChatRoomEntry:roomId key:@"gift" value:@"1" sendNotification:YES autoDelete:YES notificationExtra:@"RC:chrmKVAAAA" success:^{
         
         NSString *targetString =
         [NSString stringWithFormat:@"设置 kv 成功：\n"
@@ -155,7 +155,7 @@
 }
 // 获取kv
 - (void)getAllChatRoomEntries:(NSString *)roomId{
-    [[RCIMClient sharedRCIMClient] getAllChatRoomEntries:roomId success:^(NSDictionary<NSString *,NSString *> * _Nonnull entry) {
+    [[RCChatRoomClient sharedChatRoomClient] getAllChatRoomEntries:roomId success:^(NSDictionary<NSString *,NSString *> * _Nonnull entry) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD showSuccessWithStatus:@"获取KV成功"];
         });
@@ -169,7 +169,7 @@
 // 删除kv
 - (void)removeChatRoomEntry:(NSString *)roomId{
     
-    [[RCIMClient sharedRCIMClient] removeChatRoomEntry:roomId key:@"gift" sendNotification:YES notificationExtra:@"RC:chrmKVAAAA" success:^{
+    [[RCChatRoomClient sharedChatRoomClient] removeChatRoomEntry:roomId key:@"gift" sendNotification:YES notificationExtra:@"RC:chrmKVAAAA" success:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD showSuccessWithStatus:@"删除KV成功"];
             NSString *targetString = @"删除kv 成功";
@@ -187,7 +187,7 @@
     
     RCTextMessage * message = [RCTextMessage messageWithContent:@"123"];
     
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_CHATROOM targetId:roomId content:message pushContent:nil pushData:nil success:^(long messageId) {
+    [[RCCoreClient sharedCoreClient] sendMessage:ConversationType_CHATROOM targetId:roomId content:message pushContent:nil pushData:nil success:^(long messageId) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD showSuccessWithStatus:@"发聊天室消息成功"];
         });

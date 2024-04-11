@@ -25,7 +25,7 @@
     
     [self.chatSessionInputBarControl.pluginBoardView insertItem:[UIImage imageNamed:@"customMessage"] highlightedImage:[UIImage imageNamed:@"customMessage"] title:@"自定义消息" tag:20080];
     [self.chatSessionInputBarControl.pluginBoardView insertItem:[UIImage imageNamed:@"customMediaMessage"] highlightedImage:[UIImage imageNamed:@"customMediaMessage"] title:@"自定义媒体消息" tag:20090];
-    [RCIMClient sharedRCIMClient].messageExpansionDelegate = self;
+    [RCCoreClient sharedCoreClient].messageExpansionDelegate = self;
 }
 
 // SDK >= 5.2.4 注册自定义消息Cell
@@ -68,14 +68,14 @@
 
 - (void)didTapMessageCell:(RCMessageModel *)model {
     if ([model.objectName isEqualToString:RCDCustomMessageTypeIdentifier]) {
-        RCMessage *msg = [[RCIMClient sharedRCIMClient] getMessage:model.messageId];
+        RCMessage *msg = [[RCCoreClient sharedCoreClient] getMessage:model.messageId];
         NSDictionary *dict = msg.expansionDic;
         NSInteger value = 0;
         if ([dict.allKeys containsObject:@"count"]) {
             NSString *v = dict[@"count"];
             value = v.integerValue;
         }
-        [[RCIMClient sharedRCIMClient] updateMessageExpansion:@{@"count":[NSString stringWithFormat:@"%ld", value + 1]} messageUId:model.messageUId success:^{
+        [[RCCoreClient sharedCoreClient] updateMessageExpansion:@{@"count":[NSString stringWithFormat:@"%ld", value + 1]} messageUId:model.messageUId success:^{
             NSUInteger row = [self.conversationDataRepository indexOfObject:model];
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:row inSection:0];
             dispatch_async(dispatch_get_main_queue(), ^{

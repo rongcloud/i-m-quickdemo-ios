@@ -8,3 +8,4 @@ node_modules/
 *.xcarchive
 FrameworkPod/
 Build/
+DerivedData

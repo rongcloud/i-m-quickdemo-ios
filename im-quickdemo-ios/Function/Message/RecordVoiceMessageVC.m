@@ -115,7 +115,7 @@
         self.recorder = nil;
         
         RCVoiceMessage *message = [RCVoiceMessage messageWithAudio:currentRecordData duration:voiceSize];
-        [[RCIMClient sharedRCIMClient] sendMessage:self.conversationType targetId:self.targetIdTextField.text content:message pushContent:nil pushData:nil success:^(long messageId) {
+        [[RCCoreClient sharedCoreClient] sendMessage:self.conversationType targetId:self.targetIdTextField.text content:message pushContent:nil pushData:nil success:^(long messageId) {
             [SVProgressHUD showSuccessWithStatus:@"发送成功"];
         } error:^(RCErrorCode nErrorCode, long messageId) {
             [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"发送失败 code: %ld",(long)nErrorCode]];

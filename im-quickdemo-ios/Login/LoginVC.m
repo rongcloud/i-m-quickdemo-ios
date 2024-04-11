@@ -36,7 +36,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"登录";
-    [RCIMClient sharedRCIMClient].logLevel = RC_Log_Level_Verbose;
+    [RCCoreClient sharedCoreClient].logLevel = RC_Log_Level_Verbose;
 
     NSString *appKey = [AppGlobalConfig shareInstance].appKey;
     if (appKey.length > 0) {
@@ -97,8 +97,8 @@
     // 初始化 SDK
     [[RCIM sharedRCIM] initWithAppKey:self.appkeyTextField.text];
     // 注册自定义消息
-    [[RCIMClient sharedRCIMClient] registerMessageType:[CustomMessage class]];
-    [[RCIMClient sharedRCIMClient] registerMessageType:[CustomMediaMessage class]];
+    [[RCCoreClient sharedCoreClient] registerMessageType:[CustomMessage class]];
+    [[RCCoreClient sharedCoreClient] registerMessageType:[CustomMediaMessage class]];
 
 //    NSString *token = @"1oy/TekVhIPws2iTCpF9f03HZyCletBreXUUzEaOdJE=@9xjk.cn.rongnav.com;9xjk.cn.rongcfg.com";
     NSString *token = [AppGlobalConfig shareInstance].token;

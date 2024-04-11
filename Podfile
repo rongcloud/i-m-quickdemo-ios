@@ -7,14 +7,23 @@ target 'im-quickdemo-ios' do
 
   # Pods for im-quickdemo-ios
   # RongCloud SDK
-    pod 'RongCloudOpenSource/IMKit', '5.2.5'
-    pod 'RongCloudOpenSource/Sight', '5.2.5'
-    pod 'RongCloudOpenSource/LocationKit', '5.2.5'
+    pod 'RongCloudOpenSource/IMKit', '5.8.0'
+    pod 'RongCloudOpenSource/Sight', '5.8.0'
+    pod 'RongCloudOpenSource/LocationKit', '5.8.0'
 
   # Other
-    pod 'IQKeyboardManager'
+    pod 'IQKeyboardManager', '6.5.11'
     pod 'SVProgressHUD'
     pod 'SDWebImage', '5.11.1'
     pod 'AFNetworking'
     pod 'Masonry', '1.1.0'
+end
+
+post_install do |installer|
+ installer.pods_project.targets.each do |target|
+  target.build_configurations.each do |config|
+   config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+   config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+  end
+ end
 end

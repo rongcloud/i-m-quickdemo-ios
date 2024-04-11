@@ -76,13 +76,12 @@
     //获取所有会话未读数
     
     NSArray *displayConversationTypeArray = [AppGlobalConfig shareInstance].displayConversationTypeArray;
-    int badgeValue = [[RCIMClient sharedRCIMClient] getUnreadCount:displayConversationTypeArray containBlocked:YES];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UITabBarItem *chatBarItem = [[[self tabBar] items] objectAtIndex:0];
-        [chatBarItem setBadgeValue:badgeValue > 0 ? (badgeValue < 100 ? [@(badgeValue) stringValue] : @"99+") : nil];
-    });
-    
-    
+    [[RCCoreClient sharedCoreClient] getUnreadCount:displayConversationTypeArray containBlocked:YES completion:^(int count) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UITabBarItem *chatBarItem = [[[self tabBar] items] objectAtIndex:0];
+            [chatBarItem setBadgeValue:count > 0 ? (count < 100 ? [@(count) stringValue] : @"99+") : nil];
+        });
+    }];
 }
 
 

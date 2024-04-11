@@ -52,9 +52,9 @@
 
 // app 进入后台调用此方法
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    if ([RCIMClient sharedRCIMClient].sdkRunningMode == RCSDKRunningMode_Background ) {
+    if ([RCCoreClient sharedCoreClient].sdkRunningMode == RCSDKRunningMode_Background ) {
         
-        int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_GROUP)] containBlocked:YES];
+        int unreadMsgCount = [[RCCoreClient sharedCoreClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_GROUP)] containBlocked:YES];
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIApplication sharedApplication].applicationIconBadgeNumber = unreadMsgCount;
         });
@@ -64,8 +64,8 @@
 // app 从后台进入前台调用此方法
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-    if ([RCIMClient sharedRCIMClient].sdkRunningMode == RCSDKRunningMode_Background) {
-        int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_GROUP)] containBlocked:YES];
+    if ([RCCoreClient sharedCoreClient].sdkRunningMode == RCSDKRunningMode_Background) {
+        int unreadMsgCount = [[RCCoreClient sharedCoreClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_GROUP)] containBlocked:YES];
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIApplication sharedApplication].applicationIconBadgeNumber = unreadMsgCount;
         });
@@ -76,8 +76,8 @@
 - (void)didReceiveMessageNotification:(NSNotification *)notification {
     
     NSNumber *left = [notification.userInfo objectForKey:@"left"];
-    if ([RCIMClient sharedRCIMClient].sdkRunningMode == RCSDKRunningMode_Background && 0 == left.integerValue) {
-        int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_GROUP)] containBlocked:YES];
+    if ([RCCoreClient sharedCoreClient].sdkRunningMode == RCSDKRunningMode_Background && 0 == left.integerValue) {
+        int unreadMsgCount = [[RCCoreClient sharedCoreClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_GROUP)] containBlocked:YES];
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIApplication sharedApplication].applicationIconBadgeNumber = unreadMsgCount;
         });
@@ -121,7 +121,7 @@
     /**
      * 获取融云推送服务扩展字段1
      */
-    NSDictionary *pushServiceData = [[RCIMClient sharedRCIMClient] getPushExtraFromLaunchOptions:launchOptions];
+    NSDictionary *pushServiceData = [[RCCoreClient sharedCoreClient] getPushExtraFromLaunchOptions:launchOptions];
     if (pushServiceData) {
         NSLog(@"该启动事件包含来自融云的推送服务");
         for (id key in [pushServiceData allKeys]) {
@@ -158,7 +158,7 @@
     
     NSLog(@"deviceToken=====%@",deviceToken);
     
-    [[RCIMClient sharedRCIMClient] setDeviceTokenData:deviceToken];
+    [[RCCoreClient sharedCoreClient] setDeviceTokenData:deviceToken];
 }
 
 
@@ -174,11 +174,11 @@
     /**
      * 统计推送打开率2
      */
-    [[RCIMClient sharedRCIMClient] recordRemoteNotificationEvent:userInfo];
+    [[RCCoreClient sharedCoreClient] recordRemoteNotificationEvent:userInfo];
     /**
      * 获取融云推送服务扩展字段2
      */
-    NSDictionary *pushServiceData = [[RCIMClient sharedRCIMClient] getPushExtraFromRemoteNotification:userInfo];
+    NSDictionary *pushServiceData = [[RCCoreClient sharedCoreClient] getPushExtraFromRemoteNotification:userInfo];
     if (pushServiceData) {
         NSLog(@"该远程推送包含来自融云的推送服务");
         for (id key in [pushServiceData allKeys]) {
@@ -193,7 +193,7 @@
     /**
      * 统计推送打开率3
      */
-    [[RCIMClient sharedRCIMClient] recordLocalNotificationEvent:notification];
+    [[RCCoreClient sharedCoreClient] recordLocalNotificationEvent:notification];
 }
 
 @end
